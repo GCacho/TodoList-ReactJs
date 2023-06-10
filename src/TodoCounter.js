@@ -4,9 +4,9 @@ function TodoCounter({ total, completed }) {
   let message;
 
   if (total === 0 && completed === 0) {
-    message = 'Agrega un nuevo TODO';
+    message = 'Agrega un Nuevo TODO';
   } else if (total === completed) {
-    message = 'Terminaste los TODOS, eres la posha';
+    message = 'Terminaste los TODOS, Eres La Posha';
   } else {
     message = `Haz Completado ${ completed } de ${ total } TODOS`;
   }
