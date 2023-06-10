@@ -1,9 +1,13 @@
 body {
   margin: 0;
   padding: 0;
-  background: #f2f4f5;
+  background: linear-gradient(135deg, #000000 0%, #4A90E2 100%);
   color: #1e1e1f;
   font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+}
+ul {
+  padding-inline-start: 0;
+  width: 100%;
 }
 #root {
   margin: 0 24px;

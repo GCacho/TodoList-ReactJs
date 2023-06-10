@@ -8,7 +8,7 @@ function TodoCounter({ total, completed }) {
   } else if (total === completed) {
     message = 'Terminaste los TODOS, eres la posha';
   } else {
-    message = `Haz completado ${ completed } de ${ total } TODOS`;
+    message = `Haz Completado ${ completed } de ${ total } TODOS`;
   }
 
   return (

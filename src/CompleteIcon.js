@@ -1,8 +1,10 @@
 import React from "react";
-import { GrValidate } from "react-icons/gr";
+import { BsCheckCircle } from "react-icons/bs";
 
-function CompleteIcon(){
-    return <GrValidate />;
+function CompleteIcon( ){
+    return (
+        <BsCheckCircle />
+    )
 }
 
 export { CompleteIcon }

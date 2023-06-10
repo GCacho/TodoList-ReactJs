@@ -4,12 +4,14 @@ import { TodoSearch } from './TodoSearch';
 import { TodoList } from './TodoList';
 import { TodoItem } from './TodoItem';
 import { CreateTodoButton } from './CreateTodoButton';
+import "./MainBox.css";
 
 const defaultTodos = [
   { text: 'Cortar Cebolla', completed: false },
   { text: 'Tomar Agua', completed: false },
   { text: 'Terminar Curso React', completed: false },
   { text: 'Llorar Amargamente', completed: true },
+  { text: 'Llorar Agusto', completed: true },
 ];
 
 function App() {
@@ -50,25 +52,26 @@ function App() {
   return (
     <>
       <TodoCounter completed={completedTodos} total={totalTodos} />
-      <TodoSearch 
-        valorEstado = {valorEstado}
-        setValorEstado = {setValorEstado}
-      />
+      <div className='MainBox'>
+        <TodoSearch 
+          valorEstado = {valorEstado}
+          setValorEstado = {setValorEstado}
+        />
 
-      <TodoList>
-        {buscarTodos.map(todo => (
-          <TodoItem 
-            key = { todo.text } 
-            texto = { todo.text }
-            completed = { todo.completed }
-            onComplete = { () => todoCompleto(todo.text) }
-            onDelete = { () => todoBorrado(todo.text) }
-          />
-        ))}
-      </TodoList>
+        <TodoList>
+          {buscarTodos.map(todo => (
+            <TodoItem 
+              key = { todo.text } 
+              texto = { todo.text }
+              completed = { todo.completed }
+              onComplete = { () => todoCompleto(todo.text) }
+              onDelete = { () => todoBorrado(todo.text) }
+            />
+          ))}
+        </TodoList>
 
-      <CreateTodoButton />
-
+        <CreateTodoButton />
+        </div>
     </>
   );
 }
