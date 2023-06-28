@@ -20,7 +20,12 @@ import "./App.css";
 function App() {
 
   // *1 Crea los estados de los TODOS con React y procesa el useLocalStorage
-  const [todos, saveTodos] = useLocalStorage('TODOS_V1', []);
+  const {
+    item: todos, //Renombra el item 
+    saveItem: saveTodos,
+    loading,
+    error, 
+  } = useLocalStorage('TODOS_V1', []);
   const [valorEstado, setValorEstado] = React.useState('');
 
   const completedTodos = todos.filter(todo => !!todo.completed).length;
@@ -33,8 +38,6 @@ function App() {
       return todoText.includes(searchText)
     }
   );
-
-  console.log('Los Usuarios Buscan TODOS de: ' + valorEstado);
 
   // Guarda los TODOS en un nuevo array y devuelve los completados
   const todoCompleto = (text) => {
@@ -58,6 +61,8 @@ function App() {
 
   return (
     <AppUI
+      loading = { loading }
+      error = { error }
       completedTodos = { completedTodos }
       totalTodos = { totalTodos }
       valorEstado = { valorEstado }
