@@ -45,3 +45,16 @@ function useLocalStorage(itemName, initialValue){
 }
 
 export { useLocalStorage };
+
+// const defaultTodos = [
+//   { text: 'Cortar Cebolla', completed: false },
+//   { text: 'Tomar Agua', completed: false },
+//   { text: 'Terminar Curso React', completed: false },
+//   { text: 'Llorar Amargamente', completed: true },
+//   { text: 'Llorar Agusto', completed: true },
+// ];
+
+// localStorage.setItem('TODOS_V1', defaultTodos);
+// localStorage.removeItem('TODOS_V1');
+
+// Custom Hooks

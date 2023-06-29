@@ -1,36 +1,42 @@
+import React from 'react';
 import { TodoCounter } from '../TodoCounter';
 import { TodoSearch } from '../TodoSearch';
 import { TodoList } from '../TodoList';
 import { TodoItem } from '../TodoItem';
 import { CreateTodoButton } from '../CreateTodoButton';
+import { TodosLoading } from '../TodosLoading';
+import { TodosError } from '../TodosError';
+import { EmptyTodos } from '../EmptyTodos';
+import { Modal } from '../Modal';
+import { TodoContext } from '../TodoContext';
 
-function AppUI({
-    loading,
-    error,
-    completedTodos,
-    totalTodos,
-    valorEstado,
-    setValorEstado,
-    buscarTodos,
-    todoCompleto,
-    todoBorrado,
-}){
+
+function AppUI() {
+    const {
+      loading,
+      error,
+      buscarTodos,
+      todoCompleto,
+      todoBorrado,
+      openModal,
+      setOpenModal,
+    } = React.useContext(TodoContext);
     return (
         <>
-          <TodoCounter 
-            completed={completedTodos} 
-            total={totalTodos} 
-          />
+          <TodoCounter />
           <div className='MainBox'>
-            <TodoSearch 
-              valorEstado = {valorEstado}
-              setValorEstado = {setValorEstado}
-            />
-    
-            <TodoList>
-              { loading && <p>Cargando...</p> }
-              { error && <p>Error</p> }
-              {( !loading && buscarTodos.length === 0 ) && <p>Crea Tu Primer TODO</p> }
+            <TodoSearch />
+              <TodoList>
+              { loading && (
+                <>
+                  <TodosLoading /> 
+                  <TodosLoading /> 
+                  <TodosLoading /> 
+                </>
+              )
+              }
+              { error && <TodosError /> }
+              {( !loading && buscarTodos.length === 0 ) && <EmptyTodos /> }
 
               { buscarTodos.map(todo => (
                 <TodoItem 
@@ -43,7 +49,16 @@ function AppUI({
               )) }
             </TodoList>
     
-            <CreateTodoButton />
+            <CreateTodoButton 
+              setOpenModal = { setOpenModal }
+            />
+
+            { openModal && (
+              <Modal>
+                La funcionalidad de Agregar TODOS
+              </Modal>
+            )}
+          
             </div>
         </>
     );

@@ -1,14 +1,22 @@
+import React from 'react';
 import './TodoCounter.css';
+import { TodoContext } from '../TodoContext';
 
-function TodoCounter({ total, completed }) {
+function TodoCounter() {
+
+  const {
+    completedTodos,
+    totalTodos,
+  } = React.useContext(TodoContext);
+
   let message;
 
-  if (total === 0 && completed === 0) {
+  if (totalTodos === 0 && completedTodos === 0) {
     message = 'Agrega un Nuevo TODO';
-  } else if (total === completed) {
-    message = 'Terminaste los TODOS, Eres La Posha';
+  } else if (totalTodos === completedTodos) {
+    message = 'No Tienes TODOS Pendientes';
   } else {
-    message = `Haz Completado ${ completed } de ${ total } TODOS`;
+    message = `Haz Completado ${ completedTodos } de ${ totalTodos } TODOS`;
   }
 
   return (
