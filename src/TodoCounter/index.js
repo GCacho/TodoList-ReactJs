@@ -12,11 +12,11 @@ function TodoCounter() {
   let message;
 
   if (totalTodos === 0 && completedTodos === 0) {
-    message = 'Agrega un Nuevo TODO';
+    message = 'Agrega una Nueva Tarea';
   } else if (totalTodos === completedTodos) {
-    message = 'No Tienes TODOS Pendientes';
+    message = 'No Tienes Tareas Pendientes';
   } else {
-    message = `Haz Completado ${ completedTodos } de ${ totalTodos } TODOS`;
+    message = `Haz Completado ${ completedTodos } de ${ totalTodos } Tareas`;
   }
 
   return (
