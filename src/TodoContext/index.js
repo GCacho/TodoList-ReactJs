@@ -25,6 +25,14 @@ function TodoProvider( { children } ){
     }
   );
 
+  const addTodo = (text) => {
+    const newTodos = [...todos];
+    newTodos.push({
+      text,
+      completed: false,
+    });
+    saveTodos(newTodos);
+  }
 
   // Guarda los TODOS en un nuevo array y devuelve los completados
   const todoCompleto = (text) => {
@@ -59,6 +67,7 @@ function TodoProvider( { children } ){
             todoBorrado,
             openModal,
             setOpenModal,
+            addTodo,
         }}>
             { children }
         </TodoContext.Provider>
